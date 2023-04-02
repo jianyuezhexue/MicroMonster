@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  redis-client:
+    hostname: redis-client
+    container_name: redis-client
+    image: redis
+    volumes:
+      - ./volumes:/data
+      - ./volumes:/usr/local/etc/redis
+    command: redis-server /usr/local/etc/redis/redis.conf
+    restart: always
+    ports:
+      - "6380:6379"
+    networks:
+      microMonster:
+        ipv4_address: "7.7.0.20"
+
+
+networks:
+  microMonster:
+    ipam:
+      driver: default
+      config:
+        - subnet: "7.7.0.0/16"
