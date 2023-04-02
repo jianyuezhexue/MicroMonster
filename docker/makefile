@@ -1,10 +1,5 @@
 
 # 命令合集
-ls:
-	@echo "测试命令开始"
-	ls
-	@echo "测试命令结束"
-
 up:
 	@echo "编译并启动开始"
 	docker-compose up -d
